@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>R. Akanksha Rani - Digital Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+<style>
+  body, html {
+    margin:0; padding:0; font-family:'Poppins', sans-serif; scroll-behavior:smooth; overflow-x:hidden;
+    background: linear-gradient(135deg, #e3f0ff 0%, #b6d0f7 100%);
+    color: #1a2639;
+  }
+  a {text-decoration:none;}
+
+  /* Home Section */
+  #home {
+    min-height:100vh;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background: url('https://static.vecteezy.com/system/resources/previews/001/557/683/original/abstract-overlapping-blue-background-free-vector.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color:#fff;
+    text-align:center;
+    position:relative;
+  }
+  #home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 38, 57, 0.55);
+    z-index: 1;
+  }
+  #home > * { position: relative; z-index: 2; }
+  #home h1 {
+    font-size:3.2rem;
+    margin:0.5rem 0;
+    text-shadow:2px 2px 18px rgba(0,0,0,0.5);
+    letter-spacing: 0.04em;
+    color: #e3f0ff; /* Changed to a light blue shade for better contrast */
+  }
+  #home p,
+  #home .tagline {
+    font-size:1.3rem;
+    margin-bottom:2rem;
+    text-shadow:1px 1px 10px rgba(0,0,0,0.5);
+    font-weight: 500;
+    color: #cce6ff; /* Changed to a lighter blue for visibility */
+  }
+  .enter-btn {
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    color:#fff;
+    font-size:1.2rem;
+    font-weight:600;
+    padding:0.9rem 2.4rem;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:transform 0.3s, box-shadow 0.3s, background 0.3s;
+    box-shadow: 0 8px 25px rgba(37,99,235,0.18);
+    letter-spacing: 0.03em;
+  }
+  .enter-btn:hover {
+    transform:scale(1.06);
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+    box-shadow:0 12px 32px rgba(37,99,235,0.22);
+  }
+
+  /* Header */
+  header {
+    background: #2563eb;
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:999;
+    padding:1rem 2rem;
+    box-shadow:0 4px 15px rgba(37,99,235,0.13);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  header h1 {
+    color:#e3f0ff;
+    margin:0;
+    font-weight:700;
+    letter-spacing:0.05em;
+    font-size:1.8rem;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color:#e3f0ff;
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:0.97rem;
+    letter-spacing:0.12em;
+    transition:color 0.3s;
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+  }
+  nav a:hover, nav a:focus {
+    color:#38bdf8;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* Main */
+  main {
+    padding:7rem 1.5rem 3rem;
+    max-width:1100px;
+    margin:auto;
+    background: transparent;
+  }
+  section {
+    background: #f7faff;
+    border-radius:18px;
+    padding:2.5rem 2rem;
+    margin-bottom:3.5rem;
+    box-shadow:0 8px 32px rgba(37,99,235,0.10);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease;
+  }
+  section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h2 {
+    position:relative;
+    color:#2563eb;
+    font-weight:700;
+    letter-spacing:0.05em;
+    font-size:2rem;
+    margin-bottom:1.5rem;
+    text-align:center;
+  }
+  h2::after {
+    content:'';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:80px;
+    height:4px;
+    background:linear-gradient(90deg,#38bdf8,#2563eb);
+    border-radius:3px;
+    bottom:-12px;
+  }
+  p {
+    font-size:1.13rem;
+    line-height:1.7;
+    font-weight:500;
+    color:#1a2639;
+  }
+
+  /* Skills */
+  .skills-glass {
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    justify-content:center;
+  }
+  .skill-glass {
+    flex:1 1 320px;
+    max-width:420px;
+    min-width:260px;
+    margin:1rem 0.5rem;
+    box-sizing:border-box;
+    padding:2rem 1.2rem 1.7rem;
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    background:linear-gradient(135deg,#e3f0ff 65%,#f7faff 100%);
+    box-shadow:0 1px 36px 0 rgba(37,99,235,0.10),0 1.5px 8px rgba(37,99,235,0.08);
+    border:2px solid #b6d0f7;
+    overflow:hidden;
+    position:relative;
+    transition:box-shadow .25s, transform .18s;
+  }
+  .skill-glass:hover {
+    box-shadow:0 8px 44px rgba(37,99,235,0.18),0 1.5px 8px rgba(37,99,235,0.11);
+    transform:scale(1.03);
+  }
+  .skill-icon-avatar {
+    width:54px; height:54px; border-radius:50%;
+    background:linear-gradient(135deg,#e3eafc,#b6d0f7);
+    margin-bottom:1rem;
+    display:flex; align-items:center; justify-content:center;
+    font-size:2rem; color:#2563eb;
+    border:3px solid #38bdf8;
+    box-shadow:0 2px 15px rgba(37,99,235,0.10);
+  }
+  .skill-glass h3{color:#2563eb;font-size:1.2rem;font-weight:700;margin:0.35rem 0 0.7rem;}
+  .skill-glass p{font-weight:500;color:#1a2639;margin:0;font-size:1.02rem;line-height:1.3;}
+  .skill-glass p strong {
+    color: #2563eb; /* Bluish accent for strong text */
+    background: #e3f0ff; /* Light blue background for contrast */
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+
+  /* Projects */
+  .projects-row {display:flex;flex-wrap:wrap;gap:1.7rem;justify-content:center;}
+  .proj-row-card {
+    background:#e3f0ff;
+    border-radius:1.7rem;
+    box-shadow:0 4px 18px rgba(37,99,235,0.10);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    width:410px;
+    min-height:130px;
+    position:relative;
+    align-items:flex-start;
+    transition:box-shadow 0.22s, transform 0.17s;
+    margin-bottom:0.7rem;
+    padding:1.5rem;
+  }
+  .proj-row-card:before {
+    content:"";
+    display:block;
+    width:8px;
+    background:linear-gradient(to bottom,#38bdf8,#2563eb 86%);
+    height:100%;
+    position:absolute;
+    left:0; top:0;
+    border-radius:1.7rem 0 0 1.7rem;
+  }
+  .proj-row-card .row-icon{font-size:2.2rem;color:#38bdf8;margin-bottom:1rem;}
+  .proj-row-title{font-size:1.1rem;color:#2563eb;font-weight:700;margin-bottom:0.53rem;}
+  .proj-row-desc{font-size:1rem;color:#1a2639;margin-bottom:0.7rem;}
+  .tech-stack span {display:inline-block; background:#2563eb; color:#fff; padding:.25rem .6rem; border-radius:12px; margin:.2rem; font-size:.8rem;}
+  .proj-row-link{font-weight:700;font-size:0.98rem;color:#38bdf8;transition:color .18s;}
+  .proj-row-link:hover{color:#2563eb;text-decoration:underline;}
+  .proj-row-card a {margin-top:0.5rem;}
+
+  /* Certifications Carousel */
+  .certs-carousel {position:relative; overflow:hidden;}
+  .certs-track {display:flex; gap:2.2rem; transition:transform 0.4s cubic-bezier(.77,0,.18,1);}
+  .cert-neu-card {
+    background:#e3f0ff;
+    border-radius:20px;
+    box-shadow:6px 8px 26px #b6d0f7cf,inset 1.5px 2px 3px #fff;
+    padding:2rem 1.3rem 1.5rem;
+    max-width:285px;
+    min-width:220px;
+    border-top:7px solid #38bdf8;
+    border-bottom:4px solid #2563eb;
+    position:relative;
+    transition:box-shadow .24s,border .15s,transform .22s;
+  }
+  .cert-neu-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e3f0ff;
+    box-shadow: 0 2px 10px #2563eb22;
+    position: absolute;
+    top: 10px;   /* Move logo higher */
+    left: 18px;
+    border: 3px solid #38bdf8;
+  }
+  .cert-neu-card h3 {
+    color: #2563eb;
+    font-weight: 700;
+    margin-top: 5.5rem; /* Add more space below logo */
+    margin-bottom: 0.65rem;
+    font-size: 1.12rem;
+    letter-spacing: 0.045em;
+  }
+  .cert-neu-card .floating-badge {
+    background:linear-gradient(87deg,#38bdf8,#2563eb 100%);
+    border-radius:52px;
+    position:absolute;
+    top:-17px;
+    right:14px;
+    font-size:1.01rem;
+    color:#fff;
+    padding:0.38rem 1.25rem;
+    font-weight:700;
+    z-index:10;
+    box-shadow:0 4px 22px #38bdf850;
+    letter-spacing:0.045em;
+    animation:levitate 2.2s infinite ease-in-out alternate;
+  }
+  @keyframes levitate{0%{transform:translateY(0);}100%{transform:translateY(-10px);}}
+  .cert-neu-card h3{color:#2563eb;font-weight:700;margin-top:1.1rem;margin-bottom:0.65rem;font-size:1.12rem;letter-spacing:0.045em;}
+  .cert-neu-card .cert-tags{font-size:.93rem;color:#38bdf8;margin-bottom:0.8rem;}
+  .cert-neu-card p{color:#2563eb;font-size:.97rem;font-weight:600;margin-bottom:0;}
+  .cert-neu-card:hover{box-shadow:0 18px 50px #38bdf855,inset 1px 2px 3px #fff;transform:translateY(-7px) scale(1.03);border-top:8px solid #2563eb;}
+  .carousel-btn {
+    position:absolute; top:50%; transform:translateY(-50%);
+    font-size:2rem; background:rgba(37,99,235,0.18); color:#2563eb;
+    border:none; padding:0.5rem 1rem; cursor:pointer; border-radius:50%; z-index:5;
+    transition: background 0.2s, color 0.2s;
+  }
+  .carousel-btn.left {left:0.5rem;} .carousel-btn.right {right:0.5rem;}
+  .carousel-btn:hover {background:#38bdf8; color:#fff;}
+
+  /* Contact */
+  #contact p {font-size:1.15rem;font-weight:700;color:#1a2639;line-height:2;letter-spacing:0.03em;margin-bottom:1.5rem;}
+  #contact a {color:#38bdf8;font-weight:700;text-decoration:underline; word-break:break-all;}
+  #contact a:hover {color:#2563eb;}
+  .contact-icons a {font-size:1.5rem; margin:0 .5rem; color:#2563eb;}
+  .contact-form {margin-top:1.5rem; display:flex; flex-direction:column; gap:.7rem;}
+  .contact-form input, .contact-form textarea {
+    padding:.7rem; border:1px solid #cbd5e1; border-radius:8px; font-family:inherit;
+  }
+  .contact-form button {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 0.7rem 2rem;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 18px #2563eb33;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .contact-form button:hover {
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    box-shadow: 0 8px 28px #2563eb44;
+  }
+
+  .back-to-top {
+    position:fixed; bottom:20px; right:20px; background:#2563eb; color:#fff;
+    border:none; padding:.7rem 1rem; border-radius:50%; font-size:1.2rem; cursor:pointer;
+    display:none; z-index:1000;
+  }
+
+  footer {
+    background-color:#1a2639;
+    color:#e3f0ff;
+    padding:1.3rem 0;
+    text-align:center;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.07em;
+  }
+
+  @media(max-width:600px){
+    nav{display:none;}
+    main{padding:7rem 1rem 3rem;}
+    .skills-glass,.projects-row,.certs-track{flex-direction:column; gap:1rem;}
+    .proj-row-card,.cert-neu-card{width:100%; max-width:98vw; min-width:240px;}
+    #home h1 {font-size:2.1rem;}
+    #home p {font-size:1rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Home Section -->
+<section id="home">
+  <h1>Welcome to My Digital Portfolio</h1>
+  <p class="tagline">CSE Student | Building Web Experiences | Exploring AI | Solving Problems | AI Enthusiast</p>
+  <button class="enter-btn" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">Enter Portfolio</button>
+</section>
+
+<!-- Header -->
+<header>
+  <h1>R. Akanksha Rani</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#interests">Interests</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="portfolio">
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+      <div>
+        <p>
+          I am a passionate Computer Science and Engineering student with a strong interest in web development, software design, and emerging technologies. I have actively participated in multiple AICTE, Cohort Internships (Full Stack, Cloud, AI/ML), which helped me gain real-world experience and enhance my technical as well as soft skills. Additionally, I have successfully completed NPTEL course in Programming in Java, which strengthened my Academic Foundation and Practical Knowledge. I enjoy building projects that solve real problems and am always eager to learn and grow.
+        </p>
+        <ul>
+          <li>✔ AICTE Cohort Internships (Full Stack, Cloud, AI/ML)</li>
+          <li>✔ NPTEL Certified in Programming in Java</li>
+          <li>✔ Experience in real-world projects and teamwork</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-glass">
+      <div class="skill-glass">
+        <div class="skill-icon-avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" alt="Programming Icon" style="width:38px;height:38px;border-radius:50%;object-fit:cover;background:transparent;" />
+        </div>
+        <h3>Programming Languages</h3>
+        <p><strong>C, C++, Java, Python</strong></p>
+        <p>Strong foundation in multiple programming languages with expertise in object-oriented programming, data structures, and algorithm development. Experienced in both procedural and object-oriented paradigms.</p>
+      </div>
+      <div class="skill-glass">
+        <div class="skill-icon-avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="Web Technologies Icon" style="width:38px;height:38px;border-radius:50%;object-fit:cover;background:transparent;" />
+        </div>
+        <h3>Web Technologies</h3>
+        <p><strong>HTML, CSS, JavaScript</strong></p>
+        <p>Proficient in modern web development technologies with experience in creating responsive, user-friendly interfaces and interactive web applications with clean, maintainable code.</p>
+      </div>
+      <div class="skill-glass">
+        <div class="skill-icon-avatar"><i class="fas fa-database"></i></div>
+        <h3>Database & Tools</h3>
+        <p><strong>MySQL, Git, GitHub</strong></p>
+        <p>Experience with database management systems, version control, and collaborative development tools. Skilled in data analysis and working with structured data for application development.</p>
+      </div>
+      <div class="skill-glass">
+        <div class="skill-icon-avatar">
+          <img src="https://thumbs.dreamstime.com/z/color-devops-concept-vector-icon-isolated-two-sign-symbol-designed-blue-orange-colors-can-be-use-web-mobile-logo-eps-165475762.jpg" alt="Cloud & DevOps Icon" style="width:38px;height:38px;border-radius:50%;object-fit:cover;background:transparent;" />
+        </div>
+        <h3>Cloud & DevOps</h3>
+        <p><strong>Cloud Computing Basics, DevOps Tools(Jenkins Basics)</strong></p>
+        <p>Familiar with basics of cloud computing concepts and deploying applications on cloud platforms. Experienced in using Jenkins for managing development workflows. Learning in integrating DevOps practices for efficient software delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests Section as a separate card -->
+  <section id="interests">
+    <h2>Interests</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center;">
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <i class="fas fa-robot" style="color:#38bdf8;"></i>
+        <span>Artificial Intelligence & Machine Learning</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <i class="fas fa-code" style="color:#2563eb;"></i>
+        <span>Web Development & UI/UX Design</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <i class="fas fa-cloud" style="color:#00d2ff;"></i>
+        <span>Cloud Computing & DevOps</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <i class="fas fa-lightbulb" style="color:#38bdf8;"></i>
+        <span>Problem Solving & Hackathons</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <i class="fas fa-github" style="color:#2563eb;"></i>
+        <span>Open-Source Contributions</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <i class="fas fa-book-open" style="color:#00d2ff;"></i>
+        <span>Technical Blogging & Continuous Learning</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:1.8rem; justify-content:center;">
+      <div style="background:linear-gradient(135deg,#e3f0ff,#f7faff); padding:1.8rem 1.5rem; border-radius:20px; box-shadow:0 8px 32px rgba(37,99,235,0.1); max-width:350px; flex:1 1 300px; transition:0.3s;">
+        <h3 style="color:#2563eb; margin-bottom:0.5rem;">Bachelor of Technology (B.Tech)</h3>
+        <p style="font-weight:600; margin-bottom:0.3rem;">Computer Science & Engineering</p>
+        <p style="font-size:0.95rem; margin-bottom:0.5rem;">Nalla Malla Reddy ENgineering College, 2023 - Present</p>
+        <p>Focus on software development, AI, and web technologies. Actively involved in coding projects, internships, and skill-building programs.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#e3f0ff,#f7faff); padding:1.8rem 1.5rem; border-radius:20px; box-shadow:0 8px 32px rgba(37,99,235,0.1); max-width:350px; flex:1 1 300px; transition:0.3s;">
+        <h3 style="color:#2563eb; margin-bottom:0.5rem;">Intermediate (12th)</h3>
+        <p style="font-weight:600; margin-bottom:0.3rem;">MPC Stream</p>
+        <p style="font-size:0.95rem; margin-bottom:0.5rem;">Indrani Junior COllege, 2021 - 2023</p>
+        <p>Studied Mathematics, Physics, and Chemistry with a strong focus on problem-solving and analytical skills.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#e3f0ff,#f7faff); padding:1.8rem 1.5rem; border-radius:20px; box-shadow:0 8px 32px rgba(37,99,235,0.1); max-width:350px; flex:1 1 300px; transition:0.3s;">
+        <h3 style="color:#2563eb; margin-bottom:0.5rem;">High School (10th)</h3>
+        <p style="font-weight:600; margin-bottom:0.3rem;">B.M.R.S Grammar High School</p>
+        <p style="font-size:0.95rem; margin-bottom:0.5rem;">- 2021</p>
+        <p>Completed high school with excellent academic performance in Science and Mathematics, developing strong foundational knowledge.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-row">
+      <div class="proj-row-card">
+        <div class="row-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="proj-row-title">Digital Literacy Training Platform</div>
+        <div class="proj-row-desc">A training platform for beginners to learn basic computer skills, module-wise, with progress tracking and assessments in English and Telugu.</div>
+        <div class="tech-stack"><span>HTML</span><span>CSS</span><span>Node.js</span></div>
+        <a href="https://github.com/AkankshaRani03/Digital-Literacy-Training-Platform.git" target="_blank" class="proj-row-link"><i class="fab fa-github"></i> View Code</a>
+        
+      </div>
+      <div class="proj-row-card">
+        <div class="row-icon"><i class="fas fa-university"></i></div>
+        <div class="proj-row-title">ATM Simulator</div>
+        <div class="proj-row-desc">Java-based ATM system simulating real transactions, including balance inquiry, cash withdrawal, fund transfers, and secure account management.</div>
+        <div class="tech-stack"><span>Java</span><span>File Storage</span></div>
+        <a href="https://github.com/AkankshaRani03/ATM-Stimulation.git" target="_blank" class="proj-row-link"><i class="fab fa-github"></i> View Code</a>
+      </div>
+      <div class="proj-row-card">
+        <div class="row-icon"><i class="fas fa-seedling"></i></div>
+        <div class="proj-row-title">Crop Recommendation System</div>
+        <div class="proj-row-desc">AI-powered system analyzing soil data and crops to provide fertilizer recommendations using CSV data preprocessing and Decision Tree Classifier.</div>
+        <div class="tech-stack"><span>Python</span><span>AI/ML</span></div>
+        <a href="https://github.com/AkankshaRani03/EDUNET-Crop_Fertilizer_Recommendation.git" target="_blank" class="proj-row-link"><i class="fab fa-github"></i> View Code</a>
+      </div>
+      <div class="proj-row-card">
+        <div class="row-icon"><i class="fas fa-sliders-h"></i></div>
+        <div class="proj-row-title">Carousel Slider</div>
+        <div class="proj-row-desc">JavaScript Carousel Slider using HTML, CSS, and JS to display images with captions and smooth navigation. Managed with Git version control for commits and enhancements.</div>
+        <div class="tech-stack"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+        <a href="https://github.com/AkankshaRani03/Carousel-Slider.git" target="_blank" class="proj-row-link"><i class="fab fa-github"></i> View Code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certs-carousel">
+      <div class="certs-track" id="certsTrack">
+        <div class="cert-neu-card" style="position:relative; padding-top:3rem;">
+          <img src="https://www.uxdt.nic.in/wp-content/uploads/2024/05/all-india-council-of-technical-education-feature-all-india-council-of-technical-education-01.jpg?x14648" alt="AICTE">
+          <div class="floating-badge">Completed</div>
+          <h3>AICTE Internships</h3>
+          <div class="cert-tags">Python Full Stack, Cloud Computing, Web Full Stack Developer, Google AI-ML</div>
+          <p>Completed internship in Python Full Stack, Web Full Stack, Cloud Computing, and Google AI/ML with hands-on project experience, applying industry best practices and enhancing technical and problem-solving skills.</p>
+        </div>
+        <div class="cert-neu-card" style="position:relative; padding-top:3rem;">
+          <img src="http://sangamuniversity.ac.in/wp-content/uploads/2023/03/nptel.jpg" alt="NPTEL">
+          <div class="floating-badge">Completed</div>
+          <h3>NPTEL Java Certification</h3>
+          <div class="cert-tags">Programming in Java</div>
+          <p>Completed NPTEL Programming in Java course with strong foundation in OOP, data structures, algorithms, and practical coding through hands-on assignments</p>
+        </div>
+        <div class="cert-neu-card" style="position:relative; padding-top:3rem;">
+          <img src="https://tse2.mm.bing.net/th/id/OIP._3875bo05eNHpfyj9E8aIQHaFk?pid=Api&P=0&h=180" alt="NPTEL">
+          <div class="floating-badge">Completed</div>
+          <h3>Linkedin Learning Certification</h3>
+          <div class="cert-tags">Docker Foundations Professional Certificate, Career Essentials in GitHub Professional Certificate</div>
+          <p>Earned professional certificates in Docker Foundations and GitHub Essentials, demonstrating skills in containerization, version control, and collaborative software development.</p>
+        </div>
+        <div class="cert-neu-card" style="position:relative; padding-top:3rem;">
+          <img src="https://static.ambitionbox.com/alpha/company/photos/logos/edunet-foundation.jpg" alt="EduNet">
+          <div class="floating-badge">Completed</div>
+          <h3>EduNet Certification</h3>
+          <div class="cert-tags">Artificial Intelligence, Data Analytics</div>
+          <p>Completed EduNet Certification in Artificial Intelligence and Data Analytics. Gained hands-on experience in building AI-based crop and fertilizer recommendation systems, applying practical data science and machine learning techniques.</p>
+        </div>
+        <div class="cert-neu-card" style="position:relative; padding-top:3rem;">
+          <img src="https://play-lh.googleusercontent.com/hi5Pbcqr7as2PcchuEoptT3j6qvUrSdoKGMI9Pu8kFt1eLMvughbFWswDB0LSeSYEg" alt="VaultOfCode">
+          <div class="floating-badge">Completed</div>
+          <h3>VaultOfCOde Internship</h3>
+          <div class="cert-tags">Web Development</div>
+          <p>Web Developer Intern at Vault of Codes – Gained hands-on experience with HTML, CSS, JavaScript, and React.js through real-world projects, enhancing practical web development skills.</p>
+        </div>
+      </div>
+      <button class="carousel-btn left" id="certLeft">&#10094;</button>
+      <button class="carousel-btn right" id="certRight">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-icons">
+      <a href="mailto:akanksharir@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/akanksha-rani-04bb4b376" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/AkankshaRani03" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="tel:8639575597"><i class="fas fa-mobile-alt"></i></a>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 R. Akanksha Rani - All Rights Reserved
+</footer>
+
+<button class="back-to-top" id="backTop"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+  // Scroll animations
+  const sections=document.querySelectorAll('section');
+  window.addEventListener('scroll',()=>{
+    sections.forEach(sec=>{
+      const pos=sec.getBoundingClientRect().top;
+      if(pos<window.innerHeight-100){sec.classList.add('show');}
+    });
+  });
+
+  // Back to top
+  const backBtn=document.getElementById('backTop');
+  window.addEventListener('scroll',()=>{
+    backBtn.style.display=window.scrollY>300?'block':'none';
+  });
+  backBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+  // Certification Carousel Slider
+  (function() {
+    const track = document.getElementById('certsTrack');
+    const cards = track.querySelectorAll('.cert-neu-card');
+    const leftBtn = document.getElementById('certLeft');
+    const rightBtn = document.getElementById('certRight');
+    let current = 0;
+    let visible = 2;
+
+    function updateVisible() {
+      if (window.innerWidth < 700) visible = 1;
+      else visible = 2;
+    }
+    updateVisible();
+    window.addEventListener('resize', () => {
+      updateVisible();
+      moveTo(current); // Adjust position on resize
+    });
+
+    function moveTo(idx) {
+      if (idx < 0) idx = 0;
+      if (idx > cards.length - visible) idx = cards.length - visible;
+      current = idx;
+      const cardWidth = cards[0].offsetWidth + 32; // 32px gap
+      track.style.transform = `translateX(-${current * cardWidth}px)`;
+    }
+
+    leftBtn.onclick = () => moveTo(current - 1);
+    rightBtn.onclick = () => moveTo(current + 1);
+
+    function updateButtons() {
+      leftBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+      rightBtn.style.visibility = current >= cards.length - visible ? 'hidden' : 'visible';
+    }
+    const observer = new MutationObserver(updateButtons);
+    observer.observe(track, {attributes: true, childList: false, subtree: false});
+    window.addEventListener('resize', updateButtons);
+    setInterval(updateButtons, 300);
+
+    moveTo(0);
+    updateButtons();
+  })();
+</script>
+
+</body>
+</html>
